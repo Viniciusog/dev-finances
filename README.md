@@ -6,4 +6,4 @@ https://viniciusog.github.io/dev-finances/
 
 ## Dark mode
 
-![alt text](https://github.com/Viniciusog/dev-finances/blob/main/assets/image-dev-finances-dark.png)
+![alt text](https://github.com/Viniciusog/dev-finances/blob/main/assets/image-dev-finances-dark-new.png)
