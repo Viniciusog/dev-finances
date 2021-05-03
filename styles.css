@@ -1,0 +1,345 @@
+/*GLOBAL ==================================== */
+:root {
+    --dark-blue: #363f5f;
+    --green: #49AA26;
+    --ligh-green: #2dd10c;
+    --red: #e92929;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 15px;
+}
+
+body {
+    background: #e3e4e6;
+    font-family: 'Poppins', sans-serif
+}
+
+/*Estamos escondendo os títulos das seções Balanço e Transações - TRICK*/ 
+.sr-only {
+    /*Faz com que uma caixa que estava em uma determinada posição, 
+    venha para a frente e fique o canto superior esquerdo da caixa pai*/
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0px;
+    margin: -1px;
+    /*Esconder tudo que exceder o tamanho estipulado*/
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border-width: 0;
+
+}
+
+.container {
+    /*Pega o menor (90% do html ou 800px)*/
+    width: min(90vw, 800px);
+    height: 100%;
+    /*Pega um pouco do lado que está sobrando margem e 
+    joga para o lado que precisa ter mais margem*/
+    margin: auto;
+}
+
+/* Titles ================================== */
+h2 {
+    margin-top: 3.2rem;
+    margin-bottom: 0.8rem;
+    color: var(--dark-blue);
+    font-weight: normal;
+}
+
+/*LINKS AND BUTTONS =========================*/
+a {
+    color: var(--green);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--ligh-green);
+}
+
+button {
+    width: 100%;
+    height: 50px;
+    border: none;
+
+    color: white;
+    background: var(--green);
+    
+    padding: 0;
+
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background: var(--ligh-green);
+}
+
+.button.cancel {
+    color: var(--red);
+    border: 2px var(--red) solid;
+    border-radius: 0.25rem;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0.6;
+}
+
+.button.cancel:hover {
+    opacity: 1;
+}
+
+.button.new {
+    /*Nossa tag A tem INLINE por padrão, porém inline não deixa colocar margin-bottom*/
+    /*DISPLAY BLOCK ocupa todo o espaço fornecido pelo PAI e DEIXA colocar MARGIN BOTTOM*/
+    /*DISPLAY INLINE considera apenas o espaço que tem conteúdo*/
+    /*DISPLAY INLINE-BLOCK: considera apenas o espaço que tem conteúdo e deixa colocar margin-botton*/
+    display: inline-block;
+    margin-bottom: 0.8rem;
+}
+/* HEADER ================================== */
+header {
+    background: #2d4a22;
+    padding: 2rem 0 10rem;
+    text-align: center;
+}
+
+#logo {
+    color: #fff;
+    font-weight: 100;
+}
+
+/* BALANCE =================================== */
+
+#balance {
+    /*Fica com 8rem menos margem*/
+    margin-top: -8rem;
+}
+
+#balance h2 {
+    color: white;
+    margin-top: 0;
+}
+
+/*CARDS ===================================== */
+.card {
+    background: white;
+    padding: 1.5rem 2rem;
+    border-radius: 0.25rem;
+    color: var(--dark-blue);
+
+    margin-bottom: 2rem;
+}
+
+.card h3 {
+    font-weight: normal;
+    font-size: 1rem;
+    
+    /*Para ficar um componente do lado do outro. LIBERA OUTRAS PROPRIEDADES*/
+    display: flex;
+    /*Alinha os itens na mesma LINHA DO HORIZONTE*/
+    align-items: center;
+    /*Metade dos componentes vão para a ESQUERDA  e a outra metade vai para a DIREITA*/
+    justify-content: space-between;
+}
+
+.card p {
+    font-size: 2rem;
+    /*Diz o espaçamento entre linhas, caso tenhamos outra linha*/
+    line-height: 3rem;
+    margin-top: 1rem;
+}
+
+.card.total {
+    background: var(--green);
+    color: white;
+}
+
+#transaction {
+     /*Faz com que os elementos ocupem todos os 100% dentro do PAI (precisa que os filhos tenham width 100%
+     .Além disso, os filhos ficam um em baixo do outro*/
+    display: block;
+    width: 100%;
+     /*Se temos um overflow no EIXO X, uma barra de rolagem aparece na HORIZONTAL
+    Deixando ocupar apenas o espaço da transaction*/
+    overflow-x: auto;
+}
+/*TABLE ===================================== */
+#data-table { 
+    /*Coloca 100% do container (main) que a tabela está dentro*/
+    width: 100%;
+    /*Espaçamento no eixo VERTICAL: 0
+    Espaçamento no eixo Horizontal: 0.5rem */
+    border-spacing: 0 0.5rem;
+    color: #969cb3;
+
+}
+
+table thead tr th:first-child, table tbody tr td:first-child {
+    /*Segue sentido horário*/
+    border-radius: 0.25rem 0 0 0.25rem;
+}
+
+table thead tr th:last-child, table tbody tr td:last-child {
+    border-radius:0, 0.25rem, 0.25rem, 0;
+}
+
+table th {
+    background: white;
+    font-weight: normal;
+    /*CIMA E BAIXO: 1rem
+        LADOS: 2rem*/
+    padding: 1rem 2rem;
+    color: #29304b;
+    text-align: left;
+}
+
+table thead tr {
+    opacity: 1;
+}
+
+table tr {
+    opacity: 0.6;;
+}
+
+table tr:hover {
+    opacity: 1;
+}
+
+
+
+table td {
+    background: white;
+    padding: 1rem 2rem;
+    font-weight: normal;
+}
+
+td.description, td.date {
+    color: var(--dark-blue);
+}
+
+td.income {
+    color: #12a454;
+}
+
+td.expense {
+    color: var(--red);
+}
+
+/*MODAL OVERLAY ============================= */
+.modal-overlay {
+    /*Ocupará 100% na largura*/
+    width: 100%;
+    /*Ocupará 100% na altura*/
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+
+    /*Irá fixar o componente na nossa tela*/
+    position: fixed;
+    /*Nosso modal ficará de cima para baixo*/
+    top: 0;
+
+    display: flex;
+    /*Alinha verticamente*/
+    align-items: center;
+    /*Alinha horizontalmente*/
+    justify-content: center;
+
+    /*Não aparece na tela, mas ainda ocupa espaço*/
+    opacity: 0;
+    /*desaparece e não ocupa espaço na tela*/
+    visibility: hidden;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal {
+    background: #f0f2f5;
+    padding: 2.4rem;
+
+    /*Tamanho padrão será 90% do espaço disponível*/
+    width: 90%;
+    /*porém o tamanho padrão pode chegar até o máximo de 500px*/
+    max-width: 500px;
+
+    /*Faz o elemento se sobrepor sobre outros*/
+    z-index: 1;
+}
+
+/*FORM ====================================== */
+.form {
+    max-width: 500px;
+}
+
+.form h2 {
+    margin-top: 0.5rem;
+}
+
+.form form input {
+    width: 100%;
+    border: none;
+    border-radius: 0.2rem;
+    padding: 0.8rem;
+   
+}
+
+.input-group {
+    margin-top: 0.8rem;
+}
+
+.input-group small {
+    opacity: 0.4;
+}
+
+.input-group.actions {
+    display: flex;
+    justify-content: space-between;
+    /*Ficam no mesmo eixo (na mesma linha do horizonte)*/
+    align-items: center;
+}
+
+.input-group.actions .button, 
+.input-group.actions button {
+    width: 48%;
+}
+
+/*FOOTER ==================================== */
+footer {
+    text-align: center;
+    padding: 1rem 0 1rem;
+    color: var(--dark-blue);
+    margin-top: 1.5rem;
+    top: 0;
+}
+
+
+/*RESPONSIVE =============================== */
+/*Se o tamanho da tela for maior que 800px, então faça tal coisa*/
+@media (min-width: 800px) {
+    
+    html {
+        font-size: 14px;
+    }
+
+    #balance {
+        display: grid;
+        /*Teremos 3 colunas no grid, igualmente divididas em 3 partes IGUAIS*/
+        grid-template-columns: 1fr 1fr 1fr;
+        /*Espaço entre as colunas*/
+        gap: 2rem;
+    }
+}
