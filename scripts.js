@@ -1,3 +1,47 @@
+const checkbox = document.getElementById("checkbox-dark-mode")
+checkbox.addEventListener("change", function() {
+    if (checkbox.checked) {
+        document.querySelector("header").classList.add("dark-mode")
+        document.querySelectorAll(".card").forEach((element) => {
+            element.classList.add("dark-mode")
+        })
+        document.querySelector("body").classList.add("dark-mode")
+        //Adicionar nas linhas da tabela
+        document.querySelectorAll("td").forEach((element) => {
+            element.classList.add("dark-mode")
+        })
+        //Adicionar no cabeçalho da tabela
+        document.querySelectorAll("th").forEach((element) => {
+            element.classList.add("dark-mode")
+        })
+        //Total card
+        document.querySelector(".total").classList.add("dark-mode")
+
+        //footer
+        document.querySelector("footer").classList.add("dark-mode")
+
+    } else {
+        document.querySelector("header").classList.remove("dark-mode")
+        document.querySelectorAll(".card").forEach((element) => {
+            element.classList.remove("dark-mode")
+        })
+        document.querySelector("body").classList.remove("dark-mode")
+        //Remover das linhas da tabela
+        document.querySelectorAll("td").forEach((element) => {
+            element.classList.remove("dark-mode")
+        })
+         //Remover no cabeçalho da tabela
+         document.querySelectorAll("th").forEach((element) => {
+            element.classList.remove("dark-mode")
+        })
+
+         //footer
+         document.querySelector("footer").classList.remove("dark-mode")
+    }
+})
+
+
+
 /*Nosso modal (Tela que aparece na frente para adicionar uma nova transaçãio*/
 const Modal = {
     /*Funções do nosso objeto Modal*/
@@ -139,16 +183,23 @@ const DOM = {
     },
 
     innerHTMLTransaction(transaction, index) {
+        /*Se o checkbox de darkmode estiver ativo, então colocaremos a classe 'dark-mode' nos TD'S DA TABELA*/
+        const checkboxDarkMode = document.querySelector("#checkbox-dark-mode")
+        let classDarkMode = " "
+        if (checkboxDarkMode.checked) {
+            classDarkMode = "dark-mode"
+        }
+
         //Para cada transação, iremos analizar se essa transação é do tipo INCOME ou EXPENSE
         const CSSClass = transaction.amount > 0 ? "income" : "expense"
 
         const formattedAmount = Utils.formatCurrency(transaction.amount)
 
         const html = `  
-            <td class="description">${transaction.description}</td>
-            <td class="${CSSClass}">${formattedAmount}</td>
-            <td class="date">${transaction.date}</td>
-            <td><img onclick="Transaction.remove(${index})" src="./assets/minus.svg" alt="Apagar transação"></td>          
+            <td class="description ${classDarkMode}">${transaction.description}</td>
+            <td class="${CSSClass} ${classDarkMode}">${formattedAmount}</td>
+            <td class="date ${classDarkMode}">${transaction.date}</td>
+            <td class="${classDarkMode}"><img onclick="Transaction.remove(${index})" src="./assets/minus.svg" alt="Apagar transação"></td>          
         `
         
         return html;

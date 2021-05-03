@@ -55,6 +55,12 @@ h2 {
     font-weight: normal;
 }
 
+#label-dark-mode {
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+
 /*LINKS AND BUTTONS =========================*/
 a {
     color: var(--green);
@@ -113,6 +119,20 @@ header {
     background: #2d4a22;
     padding: 2rem 0 10rem;
     text-align: center;
+
+    /*Colocar no centro, na mesma linha do horizonte e no meio verticar*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+}
+
+#nav-header {
+    /*Temos a logo e a div-dark-mode*/
+    width: min(90vw, 800px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 #logo {
@@ -315,6 +335,39 @@ td.expense {
 .input-group.actions .button, 
 .input-group.actions button {
     width: 48%;
+}
+
+/*DARK MODE ================================ */
+header.dark-mode {
+    background: #141829;
+}
+
+.card.dark-mode {
+    background: #29304b;
+    color: white;
+}
+
+body.dark-mode {
+    background:#1b223d;
+}
+
+td.dark-mode {
+    background: #303857;
+    color: white;
+}
+
+th.dark-mode {
+    background: #303857;
+    color: white;
+}
+
+.total.dark-mode {
+    background: #177934;
+    color: white;
+}
+
+footer.dark-mode {
+    color: white;
 }
 
 /*FOOTER ==================================== */
