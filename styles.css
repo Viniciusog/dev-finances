@@ -113,6 +113,7 @@ button:hover {
     /*DISPLAY INLINE-BLOCK: considera apenas o espaço que tem conteúdo e deixa colocar margin-botton*/
     display: inline-block;
     margin-bottom: 0.8rem;
+    color: #0aa14e;
 }
 /* HEADER ================================== */
 header {
@@ -356,13 +357,21 @@ td.dark-mode {
     color: white;
 }
 
+td.income.dark-mode {
+    color: #0dc961;
+}
+
+td.expense.dark-mode {
+    color: #f01919;
+}
+
 th.dark-mode {
     background: #303857;
     color: white;
 }
 
 .total.dark-mode {
-    background: #177934;
+    background: #0aa14e;;
     color: white;
 }
 

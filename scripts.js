@@ -20,6 +20,9 @@ checkbox.addEventListener("change", function() {
         //footer
         document.querySelector("footer").classList.add("dark-mode")
 
+        //td.income
+        document.querySelector("td.income")
+
     } else {
         document.querySelector("header").classList.remove("dark-mode")
         document.querySelectorAll(".card").forEach((element) => {
